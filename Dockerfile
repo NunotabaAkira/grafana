@@ -12,15 +12,15 @@ ARG JS_SRC=js-builder
 
 # Dependabot cannot update dependencies listed in ARGs
 # By using FROM instructions we can delegate dependency updates to dependabot
-#FROM alpine:3.22.2 AS alpine-base
-#FROM ubuntu:22.04 AS ubuntu-base
-#FROM golang:1.25.3-alpine AS go-builder-base
-#FROM --platform=${JS_PLATFORM} node:22-alpine AS js-builder-base
+FROM alpine:3.22.2 AS alpine-base
+FROM ubuntu:22.04 AS ubuntu-base
+FROM golang:1.25.3-alpine AS go-builder-base
+FROM --platform=${JS_PLATFORM} node:22-alpine AS js-builder-base
 
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/alpine:3.22.2 AS alpine-base
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/ubuntu:22.04 AS ubuntu-base
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/golang:1.25.3-alpine AS go-builder-base
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/node:22-alpine AS node-base
+#FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/alpine:3.22.2 AS alpine-base
+#FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/ubuntu:22.04 AS ubuntu-base
+#FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/golang:1.25.3-alpine AS go-builder-base
+#FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/node:22-alpine AS node-base
 
 
 # Javascript build stage
