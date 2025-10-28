@@ -18,10 +18,10 @@ ARG JS_SRC=js-builder
 #FROM golang:1.25.3-alpine AS go-builder-base
 #FROM --platform=${JS_PLATFORM} node:22-alpine AS js-builder-base
 
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/alpine:3.22.2 AS alpine-base
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/ubuntu:22.04 AS ubuntu-base
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-public/golang:1.25.3-alpine AS go-builder-base
-FROM --platform=${JS_PLATFORM} registry.cn-hangzhou.aliyuncs.com/aliyun-public/node:22-alpine AS js-builder-base
+FROM registry.cn-chengdu.aliyuncs.com/aliyun-public/alpine:3.22.2 AS alpine-base
+FROM registry.cn-chengdu.aliyuncs.com/aliyun-public/ubuntu:22.04 AS ubuntu-base
+FROM registry.cn-chengdu.aliyuncs.com/aliyun-public/golang:1.25.3-alpine AS go-builder-base
+FROM --platform=${JS_PLATFORM} registry.cn-chengdu.aliyuncs.com/aliyun-public/node:22-alpine AS js-builder-base
 
 
 # Javascript build stage
