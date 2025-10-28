@@ -69,14 +69,26 @@ ARG BUILD_BRANCH=""
 ARG GO_BUILD_TAGS="oss"
 ARG WIRE_TAGS="oss"
 
-RUN if grep -i -q alpine /etc/issue; then \
-  apk add --no-cache \
-  # This is required to allow building on arm64 due to https://github.com/golang/go/issues/22040
-  binutils-gold \
-  bash \
-  # Install build dependencies
-  gcc g++ make git; \
-  fi
+# 放在 RUN 最前面，只针对 alpine 生效
+RUN set -eux; \
+    if grep -qi alpine /etc/issue; then \
+        sed -i 's|https://dl-cdn.alpinelinux.org|https://mirrors.aliyun.com|g' /etc/apk/repositories; \
+        apk upgrade --no-cache; \
+        apk add --no-cache \
+            binutils-gold \
+            bash \
+            gcc g++ make git; \
+    fi
+
+
+#RUN if grep -i -q alpine /etc/issue; then \
+#  apk add --no-cache \
+#  # This is required to allow building on arm64 due to https://github.com/golang/go/issues/22040
+#  binutils-gold \
+#  bash \
+#  # Install build dependencies
+#  gcc g++ make git; \
+#  fi
 
 WORKDIR /tmp/grafana
 
