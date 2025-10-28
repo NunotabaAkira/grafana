@@ -18,8 +18,7 @@ FROM sbjh7btarfci9k.xuanyuan.run/library/alpine:3.22.2 AS alpine-base
 FROM ubuntu:22.04 AS ubuntu-base
 FROM sbjh7btarfci9k.xuanyuan.run/library/golang:1.25.3-alpine3.22 AS go-builder-base
 
-
-FROM --platform=${JS_PLATFORM} node:22-alpine AS js-builder-base
+FROM sbjh7btarfci9k.xuanyuan.run/library/node:22.21.0-alpine3.21 AS js-builder-base
 
 
 
