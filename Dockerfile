@@ -1,5 +1,6 @@
 # to maintain formatting of multiline commands in vscode, add the following to settings.json:
 # "docker.languageserver.formatter.ignoreMultilineInstructions": true
+# syntax=docker/dockerfile:1
 
 ARG BASE_IMAGE=alpine-base
 ARG GO_IMAGE=go-builder-base
